@@ -28,3 +28,101 @@
         }
         - The above can be simplified like so
         const multiply = number => number * 2;
+
+## Exports and Imports
+    - At the end of most components, there tends to be an
+    export statement at the very end.
+    - There can also be files that all they do is just export
+    functions for other components to use (when imported)
+    - export default example: default keyword denotes what will
+    always be imported by default when that export is used.
+    - However, in a file where there are MULTIPLE exports, using
+    a default is not that good of an idea, unless it's necessary.
+        - export const clean
+        export const baseData
+            - import {clean} from './example.js'
+            - import {baseData} from './example.js'
+                - This is an example of named imports.
+                - Using a default on any of those will make it
+                a default.
+    - Just remember, that the DEFAULT keyword will determine the default
+    thing to import, regardless of what it's named.
+    - Named exports with curlies {} will denote a specific item from
+    that file.
+    - Named exports must be called EXACTLY by its name in the export
+    file.
+    - import * as bundled from './example.js'
+        - brings in an object with each of the items in example.js
+        - accessed by bundled.module, bundled.multiply, etc.
+
+## Classes (Review)
+    - Essentially, just blueprints for objects.
+    - Have properties and methods
+        - Properties are variables within Classes
+        - Methods are functions within classes.
+    - Also supports inheritance from other classes.
+    - If you are extending off of a class, make sure to call
+    the super() method in the constructor to call the parent constructor 
+    as well.
+        - Very similar to doing parent::__construct() in php.
+    - Important to know that there are functional components, and
+    class components.
+
+## ES7 Classes, Properties and Methods
+    - In ES7, you can skip the constructor call altogether, and just 
+    add a property like this
+        - myProperty = 'value'
+    - And of course in ES7 classes, fat arrow functions can be used instead
+    of traditional functions, like so
+        - testMethod = () => {...}
+
+## Spread and Rest Operators
+    - Spread operator is used to spread out array elements or object
+    properties.
+        - const newArray = [...oldArray, 1, 2]; // Arrays
+          const newObject = {...oldObject, newProp: 5} // Objects
+    - Rest operator, used to merge a list of function arguments into
+    an array. This allows us to pass as many args as we want.
+        - function sortArgs(...args) {
+            return args.sort();
+        }
+
+## Destructuring
+    - Allows you to extract array elements or object properties and store
+    them in separate variables.
+    - Array Destructuring
+        [a, b] = ['Hello', 'Test'];
+        console.log(a); // Hello
+        console.log(b); // Max
+    - Object Destructuring
+        {name} = {name: 'brandon', age: 25}
+        console.log(name) // brandon
+        console.log(age) // undefined, we didn't extract that!
+
+## Reference and Primitive Type Refresher
+    - const number = 1 // primitive Type
+      const num2 = number // complete copy of number
+    - Any integer, string, or boolean declared is considered a
+    primitive type.
+    - Objects and Arrays are reference types.
+    - If you copy an array traditionally, you're just getting a pointer.
+    If you change a value in the copy, it'll also get changed in the original.
+        - *** This is especially important, because it's done by reference;
+        this can lead to unexpected behavior.
+    - To really make a deep copy, do this
+        - const secondPerson = {
+            ...person
+        };
+        - That is what is considered a real copy, it's no longer a reference.
+    - use the spread operator and put the stuff in a new object instead, to prevent
+    modifying the original one.
+
+## Refreshing Array functions
+    - Array map is helpful for performing actions on every single element
+    of an array.
+        - const numbers = [1, 2, 3];
+          const doubleNumbersArray = numbers.map((num) => {
+              return num * 2;
+          });
+    - Of course, there are much more array functions than just that.
+    
