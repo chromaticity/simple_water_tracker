@@ -1,0 +1,30 @@
+## Differences between let & const
+    - var: still exists, but you are highly encouraged to use
+    let & const.
+    - let: Use this when declaring a variable, that really
+    is a variable.
+        - Typically, whatever block 'let' is defined in,
+        that'll be the scope.
+    - const: use this if you are creating a constant
+    value that never changes.
+
+    - Typically, if you think you won't need to reassign
+    something to a variable, just stick to const.
+    - If you are using a construct that updates a variable
+    like a loop, use let.
+    - Don't fucking use var, also because its usage can
+    be ambiguous over anything.
+
+## Arrow functions
+    - Arrow functions can typically be declared like this
+        - const testFunction = () => {}
+        - Parens can be omitted if there is only one argument.
+        - using the 'this' keyword in an arrow function means
+        that it will always keep context; it'll never change.
+    - Sometimes shorthand can be used
+        - For example
+        const multiply = (number) => {
+            return number * 2;
+        }
+        - The above can be simplified like so
+        const multiply = number => number * 2;
